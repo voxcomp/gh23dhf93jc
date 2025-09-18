@@ -20,8 +20,8 @@
 	    </div>
 	@endif
 	<div class="medium-content-area">
-		{!! Form::open(array('route' => ['payment.pay'], 'id'=>'payment-form', 'autocomplete'=>'off')) !!}
-			{{Form::hidden('invoice',$invoiceEncrypted)}}
+		{{ html()->form('POST', route('payment.pay', ))->id('payment-form')->attribute('autocomplete', 'off')->open() }}
+			{{ html()->hidden('invoice', $invoiceEncrypted) }}
 			<h4>Invoice: {{$registrant->invoice}} ({{date('m/d/Y',strtotime($registrant->created_at))}})</h4>
 			<p>{{$registrant->fname}} {{$registrant->lname}}<br>
 				{{$registrant->address}}<br>
@@ -30,7 +30,7 @@
 			<p>&nbsp;</p>
 			<h4 class="text-center green-text font-20">Registration Cost: $<span class="cost">{{$registrant->paid}}</span></h4>
 			<div>&nbsp;</div>
-	        {{Form::hidden('paymenttype','online')}}
+	        {{ html()->hidden('paymenttype', 'online') }}
 	    	<div class="form-group">
 				<label for="cardname">Name on Card</label><br>
 				<input id="cardname" type="text" class="form-control" name="cardname" value="{{old('cardname')}}">
@@ -47,7 +47,7 @@
 		    <div class="form-group">
 	            <p><button class="btn btn-primary paymenttypebtn">Submit Payment</button></p>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @endsection
 

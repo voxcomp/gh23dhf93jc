@@ -20,10 +20,10 @@
 	    </div>
 	@endif
 	<div class="medium-content-area">
-		{!! Form::open(array('route' => ['event.register.pay'], 'id'=>'event_register_form', 'autocomplete'=>'off')) !!}
+		{{ html()->form('POST', route('event.register.pay', ))->id('event_register_form')->attribute('autocomplete', 'off')->open() }}
 		    <h3>Prior Passenger Loyalty Discount</h3>
 		    <label for="discount">Please select the number of years you have traveled with us: </label>
-		    {{Form::select("discount",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],0)}}
+		    {{ html()->select("discount", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 0) }}
 			<p>&nbsp;</p>
 		    <h3>Cancellation</h3>
 		    <p>We allow transfers if you find someone to take your place.  July 13 and after no transfers.
@@ -55,12 +55,12 @@
 		    <div class="row">
 			    <div class="col-sm-8 col-spacing">
 				    <label for="signature">Signature</label>
-					{{Form::text('signature',null,['class'=>'form-control','required'])}}
+					{{ html()->text('signature')->class('form-control')->required() }}
 					<p class="small-note" style="margin-top:8px;">Registrant name or Guardian name if minor</p>
 			    </div>
 			    <div class="col-sm-4">
 				    <label for="signdate">Date</label>
-				    {{Form::text('signdate',null,['class'=>'form-control datepicker','required'])}}
+				    {{ html()->text('signdate')->class('form-control datepicker')->required() }}
 			    </div>
 		    </div>
 	        <div class="form-group">
@@ -71,7 +71,7 @@
 			<p>&nbsp;</p>
 			<h4 class="text-center green-text font-20">Registration Cost: $<span class="cost">{{$cost}}</span></h4>
 			<div>&nbsp;</div>
-	        {{Form::hidden('paymenttype','online')}}
+	        {{ html()->hidden('paymenttype', 'online') }}
 		    <div class="row form-group">
 		        <div class="col-sm rtecenter">
 					@if(date('n')>=9 || date('n')<=6)
@@ -89,7 +89,7 @@
 <!-- 		            <p class="small-note">You will be redirected to PayPal for payment. You are able to pay as a guest in PayPal with a credit card if you don’t have a PayPal account.</p> -->
 		        </div>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @endsection
 

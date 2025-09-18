@@ -20,13 +20,13 @@
 	    </div>
 	@endif
 	<div class="medium-content-area">
-		{!! Form::open(array('route' => ['event.register.options'], 'id'=>'event_register', 'autocomplete'=>'off')) !!}
+		{{ html()->form('POST', route('event.register.options', ))->id('event_register')->attribute('autocomplete', 'off')->open() }}
 			{{ method_field('PATCH') }}
 			<p>Thank you {{$registration['fname']}}, now please continue with your trip details.</p>
 			<p>&nbsp;</p>
 		    <h3>Options</h3>
 		    <p>Click on an icon or name to select your option.</p>
-		    {{Form::hidden('option',old('option',0))}}
+		    {{ html()->hidden('option', old('option', 0)) }}
 	        <div class="row form-group align-items-center">
 				<div class="col-sm-3 col-xs-5 col-spacing">
 					<div class="tripoption text-center hover" data-option="1"><img src="http://register.brancelcharters.com/images/icon-BBC.png" class="img-fluid mx-auto d-block"><h4>Bus/Bike Transportation<br>PLUS Camping</h4></div>
@@ -118,7 +118,7 @@
 			<p>&nbsp;</p>
 			<h3 class="jerseys-title">Brancel Bicycle Charters Jersey (<span class="orange-text">${{$options['jersey']}}</span>)</h3>
 			<?php $jersey = explode(';',old('jersey')); ?>
-		    {{Form::hidden('jersey',old('jersey'))}}
+		    {{ html()->hidden('jersey', old('jersey')) }}
 		    <div class="jerseys">
 				@if(!empty($jersey))
 					@foreach($jersey as $item)
@@ -143,10 +143,10 @@
 		                <input id="jersey-gender-3" class="radios" type="radio" class="form-control" name="jersey-gender" value="womens_sleeveless"></div>
 					</div>
 					<div class="form-group">
-						{{Form::select('jersey-size',['0'=>'Choose Size','XS'=>'XS','S'=>'S','M'=>'M','L'=>'L','XL'=>'XL','XXL'=>'XXL','XXXL'=>'XXXL'],null,['class'=>'form-control'])}}
+						{{ html()->select('jersey-size', ['0' => 'Choose Size', 'XS' => 'XS', 'S' => 'S', 'M' => 'M', 'L' => 'L', 'XL' => 'XL', 'XXL' => 'XXL', 'XXXL' => 'XXXL'])->class('form-control') }}
 					</div>
 					<div class="form-group">
-						{{Form::number('jersey-quantity',1,['class'=>'form-control'])}}
+						{{ html()->number('jersey-quantity', 1)->class('form-control') }}
 					</div>
 					<div class="form-group">
 						<a href="#" class="btn btn-primary add-jersey">Add Jersey</a>
@@ -170,7 +170,7 @@
 		            <input type="submit" class="btn btn-primary" value="Continue to Step 3">
 		        </div>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @endsection
 

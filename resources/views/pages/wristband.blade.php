@@ -21,7 +21,7 @@
 	@endif
 	<div class="medium-content-area">
 		<p>Please complete the form below to add your wristband number to your registration:</p>
-		{!! Form::open(array('route' => ['event.register.wristband'], 'id'=>'event_register_form', 'autocomplete'=>'off')) !!}
+		{{ html()->form('POST', route('event.register.wristband', ))->id('event_register_form')->attribute('autocomplete', 'off')->open() }}
 	        <div class="row form-group">
 				<div class="col-sm-9 col-md-6 col-spacing {{ $errors->has('invoice') ? ' has-error' : '' }}">
 		            <input id="invoice" type="text" class="form-control" name="invoice" value="{{ old('invoice') }}" required autofocus placeholder="Invoice Number">
@@ -59,7 +59,7 @@
 		            <input type="submit" class="btn btn-primary" value="Submit">
 		        </div>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @endsection
 

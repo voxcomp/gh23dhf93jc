@@ -66,7 +66,7 @@
 			<p>&nbsp;</p>
             <div class="small-note">Please be patient while we process your payment, only hit the submit button once.</div>
 	    </div>
-    {!! Form::close() !!}
+    {{ html()->form()->close() }}
 @endsection
 
 @section('rightsidebar')

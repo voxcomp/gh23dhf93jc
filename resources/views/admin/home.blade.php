@@ -21,17 +21,17 @@
 	@endif
 	<div class="medium-content-area">
 		<h3>Site Status: <span class="text-{{($options['sitestatus']=='open')?'success':'danger'}}">{{strtoupper($options['sitestatus'])}}</span></h3>
-		{!! Form::open(array('route' => ['admin.status'], 'id'=>'status_form')) !!}
+		{{ html()->form('POST', route('admin.status', ))->id('status_form')->open() }}
 			<div class="mb-2">
 				<div class="row">
 					<div class="col-sm-3 mb-2">
 						&nbsp;<br>
-						{!!Form::radio('status','open',($options['sitestatus']=='open')?true:false)!!} <strong>OPEN</strong><br>
-						{!!Form::radio('status','closed',($options['sitestatus']!='open')?true:false)!!} <strong>CLOSED</strong><br>
+						{{ html()->radio('status', $options['sitestatus'] == 'open' ? true : false, 'open') }} <strong>OPEN</strong><br>
+						{{ html()->radio('status', $options['sitestatus'] != 'open' ? true : false, 'closed') }} <strong>CLOSED</strong><br>
 					</div>
 					<div class="col-sm mb-2">
-						{!! Form::label('statusmessage','Message to visitors when site is closed:')!!}
-						{!! Form::textarea('statusmessage',old('statusmessage',$options['statusmessage']),['class'=>'form-control']) !!}
+						{{ html()->label('Message to visitors when site is closed:', 'statusmessage') }}
+						{{ html()->textarea('statusmessage', old('statusmessage', $options['statusmessage']))->class('form-control') }}
 					</div>
 				</div>
 			</div>
@@ -39,11 +39,11 @@
 				<button type="submit" href="{{route('admin.status')}}" class="btn btn-primary">Save</button>
 			</div>
 			<p>Special registration link: <strong>{{url('/'.md5(date('Y')))}}</strong></p>
-		{!! Form::close(); !!}
+		{{ html()->form()->close() }}
 		<p>&nbsp;</p>
 		<hr>
 		<p>&nbsp;</p>
-		{!! Form::open(array('route' => ['admin.options'], 'id'=>'options_form')) !!}
+		{{ html()->form('POST', route('admin.options', ))->id('options_form')->open() }}
 		    <h3>General Site Options</h3>
 	        <div class="form-group row">
 		        <div class="col-sm col-spacing">
@@ -132,7 +132,7 @@
 		            <input type="submit" class="btn btn-primary" value="Save Options">
 		        </div>
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 	<p>&nbsp;</p>
 	<hr>
@@ -159,7 +159,7 @@
 	<div class="medium-content-area">
 		<h3>Reservation Payment Request</h3>
 		<p>Request a payment from the list of registrations provided.</p>
-		{!! Form::open(array('route' => ['payment.request.send'], 'id'=>'options_form')) !!}
+		{{ html()->form('POST', route('payment.request.send', ))->id('options_form')->open() }}
 	        <div class="form-group">
 		        <label for="requestlist">Enter a list of invoice numbers separated by commas to send payment request emails:</label>
 	            <textarea id="requestlist" name="requestlist" type="text" class="form-control" required></textarea>
@@ -167,7 +167,7 @@
 		    <div class="form-group">
 	            <input type="submit" class="btn btn-primary" value="Send Request Payment To List">
 		    </div>
-		{!! Form::close() !!}
+		{{ html()->form()->close() }}
 	</div>
 @endsection
 
