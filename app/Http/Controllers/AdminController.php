@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use App\Exports\RegistrationExport;
 use App\Exports\RegistrationExportLast;
 use App\Models\Registrant;
@@ -9,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class AdminController extends Controller
+class AdminController extends Controller implements HasMiddleware
 {
     /**
      * Create a new controller instance.
@@ -19,7 +21,14 @@ class AdminController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('admin');
+
+    }
+
+    public static function middleware(): array
+    {
+        return [
+            'admin',
+        ];
     }
 
     public function index(): View
