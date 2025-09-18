@@ -18,7 +18,6 @@ class SiteOptions
      * Get setting from DB.  Return setting value.
      *
      * @param  $setting_name  string
-     * @return string
      */
     public static function get($option): string
     {
@@ -35,7 +34,6 @@ class SiteOptions
      *
      * @param  $setting_name  string
      * @param  $setting_value  string
-     * @return bool
      */
     public static function set($option, $value): bool
     {
@@ -61,7 +59,6 @@ class SiteOptions
      * Delete setting from DB.  Return false if not found.
      *
      * @param  $setting_name  string
-     * @return bool
      */
     public function delete($option): bool
     {
@@ -75,8 +72,6 @@ class SiteOptions
 
     /**
      * Return a Collection of all settings.
-     *
-     * @return Collection
      */
     public function all(): Collection
     {
