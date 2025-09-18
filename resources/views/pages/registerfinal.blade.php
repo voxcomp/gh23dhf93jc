@@ -102,7 +102,6 @@
 
 @section('footer')
 <script>
-	(function($) {
 		$(document).ready(function() {
 			$('.paymenttypebtn').click(function(event) {
 				event.preventDefault();
@@ -127,6 +126,5 @@
 				$('.cost').text(cost-discount);
 			});
 		});
-	})(jQuery);
 </script>
 @endsection

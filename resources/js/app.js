@@ -3,9 +3,17 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+ // Make jQuery global first
+ import $ from 'jquery';
+ window.$ = window.jQuery = $;
 
-require('./bootstrap');
-
+import './bootstrap';
+import 'jquery-ui-dist/jquery-ui.min.js';
+ 
+ // Legacy jQuery plugins
+ import './jquery.autocomplete.min.js';
+ import './jquery.form.min.js';
+ import './jquery.maskedinput.min.js';
 
 (function($) {
 	window.AjaxConfirmDialog = function(msg, title, url, redirect, record, reload=true, el=null, showstatus=false, statusel=null) {
@@ -121,17 +129,17 @@ require('./bootstrap');
 	$(document).ready(function() {
 		$('div.hover').mouseenter(function() {
 			if(!$(this).hasClass('selected')) {
-				src = $(this).find('img').attr('src');
+				var src = $(this).find('img').attr('src');
 				$(this).addClass('active').find('img').attr('src',src.replace('.png','-hover.png'));
 			}
 		}).mouseleave(function() {
 			if(!$(this).hasClass('selected')) {
-				src = $(this).find('img').attr('src');
+				var src = $(this).find('img').attr('src');
 				$(this).removeClass('active').find('img').attr('src',src.replace('-hover',''));
 			}
 		}).click(function() {
-			el = $(this);
-			src = $(this).find('img').attr('src');
+			var el = $(this);
+			var src = $(this).find('img').attr('src');
 			$(this).addClass('selected').find('img').attr('src',src.replace('-hover.png','.png').replace('.png','-hover.png'));
 			if($(this).data('option')=='4') {
 				$('.dates').slideDown(200);
@@ -172,4 +180,4 @@ require('./bootstrap');
 		    $(".alert").slideUp(500);
 		});
     }
-})(jQuery);
+})(window.jQuery);

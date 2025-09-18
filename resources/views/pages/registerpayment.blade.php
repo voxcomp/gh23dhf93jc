@@ -79,7 +79,6 @@
 @section('footer')
 	<script src="https://js.stripe.com/v3/"></script>
 	<script>
-		(function($) {
 			$(window).on("load",function() {
 				var stripe = Stripe('{{ (env('STRIPE_MODE')=='live')?env('STRIPE_PK'):env('STRIPE_TEST_PK') }}');
 				var elements = stripe.elements({
@@ -155,6 +154,5 @@
 				  form.submit();
 				}
 			});
-		})(jQuery);
 	</script>
 @stop

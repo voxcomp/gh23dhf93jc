@@ -183,7 +183,6 @@
 
 @section('footer')
 <script>
-	(function($) {
 		$(document).ready(function() {
 			$('.tripoption').click(function() {
 				$("input[name='option']").val($(this).data('option'));
@@ -206,8 +205,8 @@
 				console.log($("input[name=towel]:checked").val());
 */
 				$("span.addon-price").hide().text('');
+				var cost = 0;
 				if($("input[name=recumbent]:checked").val()=='yes') {
-					cost = 0;
 					if($('input[name=option]').val()=='1') {
 						cost={{$options['recumbentoption1']}};
 					} else if($('input[name=option]').val()=='2') {
@@ -216,14 +215,12 @@
 					$("input[name=recumbent]:checked").nextAll('span.addon-price').text('+ $'+cost).fadeIn(200);
 				}
 				if($("input[name=towel]:checked").val()=='yes') {
-					cost = 0;
 					if($('input[name=option]').val()=='1' || $('input[name=option]').val()=='3' || $('input[name=option]').val()=='4') {
 						cost = {{$options['towel']}};
 					}
 					$("input[name=towel]:checked").nextAll('span.addon-price').text('+ $'+cost).fadeIn(200);
 				}
 				if($("input[name=shower]:checked").val()=='yes') {
-					cost = 0;
 					if($('input[name=option]').val()=='1' || $('input[name=option]').val()=='3' || $('input[name=option]').val()=='4') {
 						cost = 45;
 					}
@@ -234,7 +231,7 @@
 				$('.tripoption').eq($("input[name='option']").val()-1).trigger('click');
 			}
 			$('.addon').click(function() {
-				optionname = $(this).attr('name');
+				var optionname = $(this).attr('name');
 				if($(this).val()=='yes') {
 					var cost = 0;
 					if(optionname=='recumbent' && $('input[name=option]').val()=='1') {
@@ -293,6 +290,5 @@
 				$('.jersey-warning').text('').fadeOut(100);
 			});
 		});
-	})(jQuery);
 </script>
 @endsection

@@ -118,8 +118,8 @@
 	<div id="dialog-confirm"></div>
 
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/theme.js') }}" type="text/javascript"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="{{ asset('js/theme.js') }}" type="text/javascript"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
 	@yield('footer')
 
 </body>
