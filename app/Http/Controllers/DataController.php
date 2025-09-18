@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Registrant;
+use App\Models\Registrant;
 
 class DataController extends Controller
 {

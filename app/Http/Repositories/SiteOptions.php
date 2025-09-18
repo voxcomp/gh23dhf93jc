@@ -6,7 +6,7 @@
 
 namespace App\Http\Repositories;
 
-use App\SiteOption;
+use App\Models\SiteOption;
 
 class SiteOptions
 {

@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Registrant;
+use App\Models\Registrant;
 use Illuminate\Console\Command;
 
 class CompletePayment extends Command

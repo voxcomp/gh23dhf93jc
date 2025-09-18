@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\RegistrationExport;
 use App\Exports\RegistrationExportLast;
-use App\Registrant;
+use App\Models\Registrant;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
