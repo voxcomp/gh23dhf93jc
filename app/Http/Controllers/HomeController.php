@@ -66,7 +66,7 @@ class HomeController extends Controller
 
     public function registerStep1(Request $request): View
     {
-        $this->validate($request, [
+        $request->validate([
             'fname' => 'required|string|max:50',
             'lname' => 'required|string|max:75',
             'email' => 'required|email:rfc,dns|max:150',
@@ -91,7 +91,7 @@ class HomeController extends Controller
 
     public function registerStepOptions(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'startdate' => 'nullable|date_format:m/d/Y|max:10|required_if:option,4',
             'enddate' => 'nullable|date_format:m/d/Y|max:10|after_or_equal:startdate|required_if:option,4',
             'option' => 'required|in:1,2,3,4',
@@ -361,7 +361,7 @@ class HomeController extends Controller
 
     public function registerSaveWristband(Request $request): View
     {
-        $this->validate($request, [
+        $request->validate([
             'invoice' => 'required|exists:registrants',
             'wristband' => 'required',
             'cell' => 'nullable|string|max:20',
