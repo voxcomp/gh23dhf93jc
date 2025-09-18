@@ -36,7 +36,7 @@ class CompletePayment extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
         $registrations = Registrant::where('paytype', 'online')->where('payid', '0')->get();
 
