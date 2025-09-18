@@ -73,7 +73,7 @@ class SiteOptions
     /**
      * Return a Collection of all settings.
      */
-    public function all(): Collection
+    public function all()
     {
         $options = SiteOption::get();
 

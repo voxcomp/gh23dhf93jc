@@ -173,7 +173,6 @@
 
 @section('footer')
 <script>
-	(function($) {
 		$(".request-payment").on("click",function(event) {
 			event.preventDefault();
 			$.ajaxSetup({
@@ -190,6 +189,5 @@
 	            }
 	        });
 	    });
-	})(jQuery);
 </script>
 @endsection
