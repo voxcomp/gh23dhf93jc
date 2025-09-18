@@ -16,7 +16,8 @@
         "maatwebsite/excel": "^3.1",
         "nztim/mailchimp": "^3.11",
         "srmklive/paypal": "^3.0",
-        "stripe/stripe-php": "^7.116"
+        "stripe/stripe-php": "^7.116",
+        "laravel/ui": "^2.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
