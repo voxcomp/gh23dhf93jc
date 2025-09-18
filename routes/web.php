@@ -48,4 +48,4 @@ Route::get('admin/download', 'AdminController@downloadData')->name('admin.downlo
 Route::get('admin/download/last', 'AdminController@downloadDataLast')->name('admin.download.last');
 Route::get('home', 'AdminController@index');
 
-Route::get('test','HomeController@test');
+Route::get('test', 'HomeController@test');
