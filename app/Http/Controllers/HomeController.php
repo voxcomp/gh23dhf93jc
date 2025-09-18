@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
 use App\Models\Registrant;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         if ($this->options->get('sitestatus') == 'closed') { // (time() > strtotime(date('Y').'-05-19 8:00') && time() < strtotime($this->options->get('startdate')).', '.(date('Y')+1))) {
             return view('pages.full', ['statusmessage' => $this->options->get('statusmessage')]);
@@ -44,12 +45,12 @@ class HomeController extends Controller
         }
     }
 
-    public function unauthorized()
+    public function unauthorized(): View
     {
         return view('pages.unauthorized');
     }
 
-    public function register()
+    public function register(): View
     {
         if (session()->has('registration') && ! session()->has('registrationoptions')) {
             $registration = session()->get('registration');
@@ -65,7 +66,7 @@ class HomeController extends Controller
         }
     }
 
-    public function registerStep1(Request $request)
+    public function registerStep1(Request $request): View
     {
         $this->validate($request, [
             'fname' => 'required|string|max:50',
@@ -347,7 +348,7 @@ class HomeController extends Controller
         return view('pages.registersuccess', ['registration' => $registrant]);
     }
 
-    public function registerSuccess($invoice)
+    public function registerSuccess($invoice): View
     {
         $registration = Registrant::where('invoice', $invoice)->first();
         $invoice = true;
@@ -355,12 +356,12 @@ class HomeController extends Controller
         return view('pages.registersuccess', compact('registration', 'invoice'));
     }
 
-    public function registerWristband()
+    public function registerWristband(): View
     {
         return view('pages.wristband');
     }
 
-    public function registerSaveWristband(Request $request)
+    public function registerSaveWristband(Request $request): View
     {
         $this->validate($request, [
             'invoice' => 'required|exists:registrants',
@@ -375,7 +376,7 @@ class HomeController extends Controller
         return view('pages.wristbandconfirm');
     }
 
-    public function paymentRequest($invoiceEncrypted)
+    public function paymentRequest($invoiceEncrypted): View
     {
         try {
             $invoice = decrypt($invoiceEncrypted);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Exports\RegistrationExport;
 use App\Exports\RegistrationExportLast;
 use App\Models\Registrant;
@@ -20,7 +22,7 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    public function index()
+    public function index(): View
     {
         $options = $this->options->all();
 
@@ -35,7 +37,7 @@ class AdminController extends Controller
         return $this->index();
     }
 
-    public function saveOptions(Request $request)
+    public function saveOptions(Request $request): View
     {
         $results = $request->all();
         unset($results['_token']);
@@ -75,7 +77,7 @@ class AdminController extends Controller
         echo $registrations->count().' payment request e-mails sent.';
     }
 
-    public function sendPaymentRequest(Request $request)
+    public function sendPaymentRequest(Request $request): RedirectResponse
     {
         $list = explode(',', $request->requestlist);
 

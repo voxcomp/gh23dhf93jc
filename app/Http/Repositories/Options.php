@@ -23,7 +23,7 @@ class Options
      * @param  $setting_name  string
      * @return string
      */
-    public static function get($option)
+    public static function get($option): string
     {
         $option = Option::where('option', '=', $option)->first();
         if ($option) {
@@ -40,7 +40,7 @@ class Options
      * @param  $setting_value  string
      * @return bool
      */
-    public static function set($option, $value)
+    public static function set($option, $value): bool
     {
         $get = Option::where('option', '=', $option)->first();
         if (! $get) {
@@ -66,7 +66,7 @@ class Options
      * @param  $setting_name  string
      * @return bool
      */
-    public function delete($option)
+    public function delete($option): bool
     {
         $option = Option::where('option', '=', $option);
         if ($option) {
@@ -81,7 +81,7 @@ class Options
      *
      * @return Collection
      */
-    public function all()
+    public function all(): Collection
     {
         return Option::all();
     }

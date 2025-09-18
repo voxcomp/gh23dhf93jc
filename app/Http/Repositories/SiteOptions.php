@@ -20,7 +20,7 @@ class SiteOptions
      * @param  $setting_name  string
      * @return string
      */
-    public static function get($option)
+    public static function get($option): string
     {
         $option = SiteOption::where('name', '=', $option)->first();
         if ($option) {
@@ -37,7 +37,7 @@ class SiteOptions
      * @param  $setting_value  string
      * @return bool
      */
-    public static function set($option, $value)
+    public static function set($option, $value): bool
     {
         $get = SiteOption::where('name', '=', $option)->first();
         if (! $get) {
@@ -63,7 +63,7 @@ class SiteOptions
      * @param  $setting_name  string
      * @return bool
      */
-    public function delete($option)
+    public function delete($option): bool
     {
         $option = SiteOption::where('name', '=', $option);
         if ($option) {
@@ -78,7 +78,7 @@ class SiteOptions
      *
      * @return Collection
      */
-    public function all()
+    public function all(): Collection
     {
         $options = SiteOption::get();
 
