@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected $options; 
+    protected $options;
 
     /**
      * Create a new controller instance.
@@ -21,6 +20,6 @@ class Controller extends BaseController
      */
     public function __construct()
     {
-	    $this->options = new \App\Http\Repositories\SiteOptions;
+        $this->options = new \App\Http\Repositories\SiteOptions;
     }
 }

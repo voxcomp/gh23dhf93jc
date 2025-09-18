@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateOptionsTable extends Migration
 {
@@ -15,8 +15,8 @@ class CreateOptionsTable extends Migration
     {
         Schema::create('site_options', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',50)->default('');
-            $table->string('value',100)->default('');
+            $table->string('name', 50)->default('');
+            $table->string('value', 100)->default('');
             $table->timestamps();
         });
     }

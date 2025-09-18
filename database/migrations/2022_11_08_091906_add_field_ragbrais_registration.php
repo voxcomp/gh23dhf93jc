@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddFieldRagbraisRegistration extends Migration
 {
@@ -15,7 +15,7 @@ class AddFieldRagbraisRegistration extends Migration
     {
         Schema::table('registrants', function (Blueprint $table) {
             $table->integer('ragbrais')->default(0);
-		});
+        });
     }
 
     /**
@@ -25,12 +25,12 @@ class AddFieldRagbraisRegistration extends Migration
      */
     public function down()
     {
-	    try{
-        Schema::table('registrants', function (Blueprint $table) {
-	        $table->dropColumn('ragbrais');
-        });
-        }catch(\Exception $e) {
-	        
+        try {
+            Schema::table('registrants', function (Blueprint $table) {
+                $table->dropColumn('ragbrais');
+            });
+        } catch (\Exception $e) {
+
         }
     }
 }

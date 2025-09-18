@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-
 use App\Registrant;
+use Illuminate\Console\Command;
 
 class CompletePayment extends Command
 {
@@ -39,12 +38,12 @@ class CompletePayment extends Command
      */
     public function handle()
     {
-		$registrations = Registrant::where("paytype","online")->where('payid','0')->get();
-		
-		foreach($registrations as $registration) {
-			\Mail::to($registration->email)->send(new \App\Mail\PayRequest($registration));
-		}
-		
-		echo $registrations->count()." payment request e-mails sent.";
+        $registrations = Registrant::where('paytype', 'online')->where('payid', '0')->get();
+
+        foreach ($registrations as $registration) {
+            \Mail::to($registration->email)->send(new \App\Mail\PayRequest($registration));
+        }
+
+        echo $registrations->count().' payment request e-mails sent.';
     }
 }

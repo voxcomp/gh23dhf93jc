@@ -5,13 +5,15 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PayRequest extends Mailable
 {
     use Queueable, SerializesModels;
-	public $registrant;
-	public $subject;
+
+    public $registrant;
+
+    public $subject;
+
     public $link;
 
     /**
@@ -23,7 +25,7 @@ class PayRequest extends Mailable
     {
         $this->registrant = $registrant;
         $this->link = config('app.url').'/payment-request/'.encrypt($registrant->invoice);
-        $this->subject = "Brancel Bicycle Charters RAGBRAI Registration Payment";
+        $this->subject = 'Brancel Bicycle Charters RAGBRAI Registration Payment';
     }
 
     /**

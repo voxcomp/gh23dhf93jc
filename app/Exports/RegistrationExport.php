@@ -10,9 +10,9 @@ class RegistrationExport implements FromView
 {
     public function view(): View
     {
-	    $options = new \App\Http\Repositories\SiteOptions;
-	    $options->set('lastexport',date('Y-m-d G:i:s'));
+        $options = new \App\Http\Repositories\SiteOptions;
+        $options->set('lastexport', date('Y-m-d G:i:s'));
 
-        return view('reports.registrants', ['registrants'=>Registrant::orderBy('id')->get()]);
+        return view('reports.registrants', ['registrants' => Registrant::orderBy('id')->get()]);
     }
 }

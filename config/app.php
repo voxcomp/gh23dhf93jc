@@ -161,10 +161,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-		Srmklive\PayPal\Providers\PayPalServiceProvider::class,
-		NZTim\Mailchimp\MailchimpServiceProvider::class,
-		Maatwebsite\Excel\ExcelServiceProvider::class,
-		
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        NZTim\Mailchimp\MailchimpServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -213,7 +213,7 @@ return [
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
-		'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
+        'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,

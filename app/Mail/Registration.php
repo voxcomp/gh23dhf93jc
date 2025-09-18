@@ -5,18 +5,15 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
-use App\Registrant;
-
 
 class Registration extends Mailable
 {
     use Queueable, SerializesModels;
 
-	public $registrant;
-	public $subject;
-    //public $link;
+    public $registrant;
+
+    public $subject;
+    // public $link;
 
     /**
      * Create a new message instance.
@@ -26,8 +23,8 @@ class Registration extends Mailable
     public function __construct($registrant)
     {
         $this->registrant = $registrant;
-        //$this->link = config('app.url').'/wristband';
-        $this->subject = "Brancel Bicycle Charters RAGBRAI Registration";
+        // $this->link = config('app.url').'/wristband';
+        $this->subject = 'Brancel Bicycle Charters RAGBRAI Registration';
     }
 
     /**
