@@ -1,0 +1,2 @@
+[09-Nov-2022 12:54:02 America/Chicago] PHP Fatal error:  Cannot declare class AddFieldRagbraisRegistration, because the name is already in use in /home/brancel/eventstaging/database/migrations/2022_11_08_091910_add_field_charters_registration.php on line 7
+[09-Nov-2022 12:55:37 America/Chicago] PHP Fatal error:  Cannot declare class AddFieldRagbraisRegistration, because the name is already in use in /home/brancel/eventstaging/database/migrations/2022_11_08_091906_add_field_ragbrais_registration copy.php on line 7
